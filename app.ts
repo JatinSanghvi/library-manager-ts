@@ -1,4 +1,7 @@
-function GetBooks() {
+import { Category } from './enums';
+import { Book } from './interfaces';
+
+function GetBooks(): Book[] {
     let books = [
         { id: 1, title: 'Ulysses', author: 'James Joyce', available: true, category: Category.Fiction },
         { id: 2, title: 'A Farewell to Arms', author: 'Ernest Hemingway', available: false, category: Category.Fiction },
@@ -9,7 +12,7 @@ function GetBooks() {
     return books;
 }
 
-function LogFirstAvailable(books: any[] = GetBooks()): void {
+function LogFirstAvailable(books: Book[] = GetBooks()): void {
     const numberOfBooks: number = books.length;
     let firstAvailable: string = '';
 
@@ -23,12 +26,10 @@ function LogFirstAvailable(books: any[] = GetBooks()): void {
     console.log('First available book: ' + firstAvailable);
 }
 
-enum Category { Biography, Poetry, Fiction, History, Children }
-
 function GetBookTitlesByCategory(category: Category = Category.Fiction): string[] {
     console.log('Getting books in category: ' + Category[category]);
 
-    const books = GetBooks();
+    const books: Book[] = GetBooks();
     const bookTitles: string[] = [];
 
     for (let currentBook of books) {
@@ -46,8 +47,8 @@ function LogBookTitles(titles: string[]): void {
     }
 }
 
-function GetBookById(id: number) {
-    const books = GetBooks();
+function GetBookById(id: number): Book {
+    const books: Book[] = GetBooks();
     return books.filter(book => book.id == id)[0];
 }
 
@@ -59,7 +60,7 @@ function CreateCustomer(name: string, age?: number, city?: string): void {
     console.log('Creating customer: ' + name);
 
     if (age) {
-        console.log ('Age: ' + age);
+        console.log('Age: ' + age);
     }
 
     if (city) {
@@ -72,7 +73,7 @@ function CheckoutBooks(customerName: string, ...bookIds: number[]): string[] {
 
     const checkedOutBookTitles: string[] = [];
     for (const id of bookIds) {
-        const book = GetBookById(id);
+        const book: Book = GetBookById(id);
 
         if (book.available) {
             checkedOutBookTitles.push(book.title);
@@ -106,6 +107,10 @@ function GetTitles(bookProperty: any): string[] {
     }
 
     return titles;
+}
+
+function PrintBook(book: Book): void {
+    console.log(book.title + ' by ' + book.author);
 }
 
 // Test code.
@@ -153,3 +158,17 @@ function GetTitles(bookProperty: any): string[] {
 
 // const checkedOutBookTitles = GetTitles(false);
 // checkedOutBookTitles.forEach(title => console.log(title));
+
+// Interfaces.
+// const myBook: Book = {
+//     id: 5,
+//     title: 'Pride and Prejudice',
+//     author: 'Jane Austen',
+//     available: true,
+//     category: Category.Fiction,
+//     pages: 250,
+//     markDamaged: (reason: string) => console.log('Damaged: ' + reason)
+// };
+
+// PrintBook(myBook);
+// myBook.markDamaged('Missing back cover');
