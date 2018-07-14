@@ -185,5 +185,6 @@ function PrintBook(book: Book): void {
 // console.log(myReferenceItem.publisher); 
 
 // Inheritance.
-const myEncyclopedia: Encyclopedia = new Encyclopedia('Worldpedia', 1900, 10);
+const myEncyclopedia: ReferenceItem = new Encyclopedia('Worldpedia', 1900, 10);
 myEncyclopedia.print();
+myEncyclopedia.printCitation();
