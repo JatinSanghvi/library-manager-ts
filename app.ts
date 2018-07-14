@@ -1,5 +1,5 @@
 import { Category } from './enums';
-import { Book } from './interfaces';
+import { Book, DamageLogger } from './interfaces';
 
 function GetBooks(): Book[] {
     let books = [
@@ -159,7 +159,7 @@ function PrintBook(book: Book): void {
 // const checkedOutBookTitles = GetTitles(false);
 // checkedOutBookTitles.forEach(title => console.log(title));
 
-// Interfaces.
+// // Interfaces.
 // const myBook: Book = {
 //     id: 5,
 //     title: 'Pride and Prejudice',
