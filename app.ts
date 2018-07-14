@@ -1,6 +1,6 @@
 import { Category } from './enums';
 import { Book, DamageLogger, Librarian } from './interfaces';
-import { UniversityLibrarian, ReferenceItem } from './classes';
+import { UniversityLibrarian, ReferenceItem, Encyclopedia } from './classes';
 
 function GetBooks(): Book[] {
     let books = [
@@ -179,7 +179,11 @@ function PrintBook(book: Book): void {
 // favoriteLibrarian.name = 'Sharon';
 // favoriteLibrarian.assistCustomer('Lynda');
 
-const myReferenceItem: ReferenceItem = new ReferenceItem('Facts and Figures', 2016);
-myReferenceItem.print();
-myReferenceItem.publisher = 'Random Data Publishing';
-console.log(myReferenceItem.publisher);
+// const myReferenceItem: ReferenceItem = new ReferenceItem('Facts and Figures', 2016);
+// myReferenceItem.print();
+// myReferenceItem.publisher = 'Random Data Publishing';
+// console.log(myReferenceItem.publisher); 
+
+// Inheritance.
+const myEncyclopedia: Encyclopedia = new Encyclopedia('Worldpedia', 1900, 10);
+myEncyclopedia.print();
