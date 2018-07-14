@@ -1,6 +1,6 @@
 import { Category } from './enums';
 import { Book, DamageLogger, Librarian } from './interfaces';
-import { UniversityLibrarian } from './classes';
+import { UniversityLibrarian, ReferenceItem } from './classes';
 
 function GetBooks(): Book[] {
     let books = [
@@ -174,7 +174,12 @@ function PrintBook(book: Book): void {
 // PrintBook(myBook);
 // myBook.markDamaged('Missing back cover');
 
-// Classes.
-const favoriteLibrarian: Librarian = new UniversityLibrarian();
-favoriteLibrarian.name = 'Sharon';
-favoriteLibrarian.assistCustomer('Lynda');
+// // Classes.
+// const favoriteLibrarian: Librarian = new UniversityLibrarian();
+// favoriteLibrarian.name = 'Sharon';
+// favoriteLibrarian.assistCustomer('Lynda');
+
+const myReferenceItem: ReferenceItem = new ReferenceItem('Facts and Figures', 2016);
+myReferenceItem.print();
+myReferenceItem.publisher = 'Random Data Publishing';
+console.log(myReferenceItem.publisher);
