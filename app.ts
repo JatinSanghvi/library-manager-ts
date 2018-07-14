@@ -9,7 +9,7 @@ function GetBooks() {
     return books;
 }
 
-function LogFirstAvailable(books: any[]): void {
+function LogFirstAvailable(books: any[] = GetBooks()): void {
     const numberOfBooks: number = books.length;
     let firstAvailable: string = '';
 
@@ -25,7 +25,7 @@ function LogFirstAvailable(books: any[]): void {
 
 enum Category { Biography, Poetry, Fiction, History, Children }
 
-function GetBookTitlesByCategory(category: Category): string[] {
+function GetBookTitlesByCategory(category: Category = Category.Fiction): string[] {
     console.log('Getting books in category: ' + Category[category]);
 
     const books = GetBooks();
@@ -55,18 +55,68 @@ function CreateCustomerId(name: string, id: number): string {
     return name + id;
 }
 
+function CreateCustomer(name: string, age?: number, city?: string): void {
+    console.log('Creating customer: ' + name);
+
+    if (age) {
+        console.log ('Age: ' + age);
+    }
+
+    if (city) {
+        console.log('City: ' + city);
+    }
+}
+
+function CheckoutBooks(customerName: string, ...bookIds: number[]): string[] {
+    console.log('Checking out books for: ' + customerName);
+
+    const checkedoutBookTitles: string[] = [];
+    for (const id of bookIds) {
+        const book = GetBookById(id);
+
+        if (book.available) {
+            checkedoutBookTitles.push(book.title);
+        }
+    }
+
+    return checkedoutBookTitles;
+}
+
 // Test code.
 
+// // Arrow functions.
 // const fictionBooks = GetBookTitlesByCategory(Category.Fiction);
 // fictionBooks.forEach((value, index, array) => (index + 1) + ' - ' + value);
 
-let numVariable: number;
-numVariable = 10;
+// // Function types.
+// let numVariable: number;
+// numVariable = 10;
 
-let funcVariable: (str: string, num: number) => string;
+// let funcVariable: (str: string, num: number) => string;
 
-funcVariable = CreateCustomerId;
-console.log(funcVariable('Daniel', 10));
+// funcVariable = CreateCustomerId;
+// console.log(funcVariable('Daniel', 10));
 
-funcVariable = (str, num) => str + num;
-console.log(funcVariable('Daniel', 20));
+// funcVariable = (str, num) => str + num;
+// console.log(funcVariable('Daniel', 20));
+
+// // Optional parameters.
+// CreateCustomer('Michelle');
+// CreateCustomer('Leigh', 6);
+// CreateCustomer('Marie', 12, 'Atlanta');
+
+// // Default parameters.
+// const poetryBooks = GetBookTitlesByCategory(Category.Poetry);
+// poetryBooks.forEach(title => console.log(title));
+
+// const fictionBooks = GetBookTitlesByCategory();
+// fictionBooks.forEach(title => console.log(title));
+
+// LogFirstAvailable();
+
+// // Rest parameters.
+// let checkedoutBookTitles = CheckoutBooks('Thorne');
+// checkedoutBookTitles.forEach(title => console.log(title));
+
+// checkedoutBookTitles = CheckoutBooks('Thorne', 1, 3);
+// checkedoutBookTitles.forEach(title => console.log(title));
