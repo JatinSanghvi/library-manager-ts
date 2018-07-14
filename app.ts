@@ -70,16 +70,42 @@ function CreateCustomer(name: string, age?: number, city?: string): void {
 function CheckoutBooks(customerName: string, ...bookIds: number[]): string[] {
     console.log('Checking out books for: ' + customerName);
 
-    const checkedoutBookTitles: string[] = [];
+    const checkedOutBookTitles: string[] = [];
     for (const id of bookIds) {
         const book = GetBookById(id);
 
         if (book.available) {
-            checkedoutBookTitles.push(book.title);
+            checkedOutBookTitles.push(book.title);
         }
     }
 
-    return checkedoutBookTitles;
+    return checkedOutBookTitles;
+}
+
+function GetTitles(author: string): string[];
+function GetTitles(available: boolean): string[];
+
+function GetTitles(bookProperty: any): string[] {
+    const books: any[] = GetBooks();
+    const titles: string[] = [];
+
+    if (typeof bookProperty === 'string') {
+        for (const book of books) {
+            if (book.author === bookProperty) {
+                titles.push(book.title);
+            }
+        }
+    }
+
+    else if (typeof bookProperty === 'boolean') {
+        for (const book of books) {
+            if (book.available === bookProperty) {
+                titles.push(book.title);
+            }
+        }
+    }
+
+    return titles;
 }
 
 // Test code.
@@ -115,8 +141,15 @@ function CheckoutBooks(customerName: string, ...bookIds: number[]): string[] {
 // LogFirstAvailable();
 
 // // Rest parameters.
-// let checkedoutBookTitles = CheckoutBooks('Thorne');
-// checkedoutBookTitles.forEach(title => console.log(title));
+// let checkedOutBookTitles = CheckoutBooks('Thorne');
+// checkedOutBookTitles.forEach(title => console.log(title));
 
-// checkedoutBookTitles = CheckoutBooks('Thorne', 1, 3);
-// checkedoutBookTitles.forEach(title => console.log(title));
+// checkedOutBookTitles = CheckoutBooks('Thorne', 1, 3);
+// checkedOutBookTitles.forEach(title => console.log(title));
+
+// // Function overloads.
+// const hermanBookTitles = GetTitles('Herman Melville');
+// hermanBookTitles.forEach(title => console.log(title));
+
+// const checkedOutBookTitles = GetTitles(false);
+// checkedOutBookTitles.forEach(title => console.log(title));
