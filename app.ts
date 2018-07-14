@@ -1,5 +1,6 @@
 import { Category } from './enums';
-import { Book, DamageLogger } from './interfaces';
+import { Book, DamageLogger, Librarian } from './interfaces';
+import { UniversityLibrarian } from './classes';
 
 function GetBooks(): Book[] {
     let books = [
@@ -172,3 +173,8 @@ function PrintBook(book: Book): void {
 
 // PrintBook(myBook);
 // myBook.markDamaged('Missing back cover');
+
+// Classes.
+const favoriteLibrarian: Librarian = new UniversityLibrarian();
+favoriteLibrarian.name = 'Sharon';
+favoriteLibrarian.assistCustomer('Lynda');
