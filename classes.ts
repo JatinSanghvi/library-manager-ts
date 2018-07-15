@@ -34,19 +34,4 @@ abstract class ReferenceItem {
     abstract printCitation(): void;
 }
 
-class Encyclopedia extends ReferenceItem {
-    constructor(title: string, year: number, private edition: number) {
-        super(title, year);
-    }
-
-    print(): void {
-        super.print();
-        console.log(`Edition: ${this.edition} (${this.year})`);
-    }
-
-    printCitation(): void {
-        console.log(`${this.title} - ${this.year}`);
-    }
-}
-
-export { UniversityLibrarian, ReferenceItem, Encyclopedia };
+export { UniversityLibrarian, ReferenceItem };
