@@ -2,7 +2,7 @@ import { Category } from './enums';
 import { Book, Logger, Librarian } from './interfaces';
 import { UniversityLibrarian, ReferenceItem } from './classes';
 import Encyclopedia from './encyclopedia';
-import { CalculateLateFee as LateFee, MaximumBooksAllowed } from './lib/utility';
+import { CalculateLateFee as LateFee, MaximumBooksAllowed, Purge } from './lib/utility';
 
 function GetBooks(): Book[] {
     let books = [
@@ -207,3 +207,17 @@ function PrintBook(book: Book): void {
 
 // let myNovel = new Novel();
 // myNovel.title = 'Da Vinci Code';
+
+// Generics.
+const inventory: Book[] = [
+    { id: 10, title: 'The C Programming Language', author: 'K & R', available: true, category: Category.Software },
+    { id: 11, title: 'Code Complete', author: 'Steve McConnell', available: true, category: Category.Software },
+    { id: 12, title: '8-Bit Graphics with Cobol', author: 'A. B.', available: true, category: Category.Software },
+    { id: 13, title: 'Cool autoexec.bat Scripts!', author: 'C. D.', available: true, category: Category.Software }
+];
+
+const purgedInventory: Book[] = Purge(inventory);
+purgedInventory.forEach(book => console.log(book.title));
+
+const purgedNumbers: number[] = Purge([1, 2, 3, 4]);
+console.log(purgedNumbers);
