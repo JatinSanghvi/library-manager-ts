@@ -244,4 +244,4 @@ magazines.forEach(magazine => magazineShelf.add(magazine));
 magazineShelf.printTitles();
 
 const codeCompleteBook = bookShelf.find('Code Complete');
-console.log(`${codeCompleteBook.title} (${codeCompleteBook.author})`)
+console.log(`${codeCompleteBook.title} (${codeCompleteBook.author})`);

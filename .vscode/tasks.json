@@ -5,17 +5,6 @@
             "label": "build",
             "type": "shell",
             "command": "tsc",
-            "args": [
-                "--target",
-                "ES5",
-                "--outdir",
-                "js",
-                "--module",
-                "commonjs",
-                "--sourceMap",
-                "--watch",
-                "app.ts"
-            ],
             "problemMatcher": "$tsc",
             "presentation": {
                 "reveal": "silent"
