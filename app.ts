@@ -225,7 +225,7 @@ const inventory: Book[] = [
 
 const bookShelf: Shelf<Book> = new Shelf<Book>();
 inventory.forEach(book => bookShelf.add(book));
-console.log(bookShelf.getFirst().title);
+// console.log(bookShelf.getFirst().title);
 
 const magazines: Magazine[] = [
     { title: 'Programming Language Monthly', publisher: 'Code Mags' },
@@ -235,8 +235,13 @@ const magazines: Magazine[] = [
 
 const magazineShelf = new Shelf<Magazine>();
 magazines.forEach(magazine => magazineShelf.add(magazine));
-console.log(magazineShelf.getFirst().title);
+// console.log(magazineShelf.getFirst().title);
 
-const numberShelf = new Shelf<number>();
-[1, 2, 3, 4].forEach(num => numberShelf.add(num));
-console.log(numberShelf.getFirst());
+// const numberShelf = new Shelf<number>();
+// [1, 2, 3, 4].forEach(num => numberShelf.add(num));
+// console.log(numberShelf.getFirst());
+
+magazineShelf.printTitles();
+
+const codeCompleteBook = bookShelf.find('Code Complete');
+console.log(`${codeCompleteBook.title} (${codeCompleteBook.author})`)
