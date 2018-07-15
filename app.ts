@@ -184,7 +184,24 @@ function PrintBook(book: Book): void {
 // myReferenceItem.publisher = 'Random Data Publishing';
 // console.log(myReferenceItem.publisher); 
 
-// Inheritance.
-const myEncyclopedia: ReferenceItem = new Encyclopedia('Worldpedia', 1900, 10);
-myEncyclopedia.print();
-myEncyclopedia.printCitation();
+// // Inheritance.
+// const myEncyclopedia: ReferenceItem = new Encyclopedia('Worldpedia', 1900, 10);
+// myEncyclopedia.print();
+// myEncyclopedia.printCitation();
+
+// Class expression.
+const NewsPaper = class extends ReferenceItem {
+    printCitation(): void {
+        console.log(`Newspaper: ${this.title}`)
+    }
+}
+
+const myNewsPaper = new NewsPaper('The Gazette', 2014);
+myNewsPaper.printCitation();
+
+class Novel extends class { title: string } {
+    mainCharacter: string;
+}
+
+let myNovel = new Novel();
+myNovel.title = 'Da Vinci Code';
