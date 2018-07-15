@@ -5,6 +5,8 @@ import { CalculateLateFee as LateFee, MaximumBooksAllowed, Purge } from './lib/u
 import Encyclopedia from './encyclopedia';
 import Shelf from './shelf';
 
+import * as _ from 'lodash';
+
 function GetBooks(): Book[] {
     let books = [
         { id: 1, title: 'Ulysses', author: 'James Joyce', available: true, category: Category.Fiction },
@@ -223,25 +225,28 @@ const inventory: Book[] = [
 // const purgedNumbers: number[] = Purge([1, 2, 3, 4]);
 // console.log(purgedNumbers);
 
-const bookShelf: Shelf<Book> = new Shelf<Book>();
-inventory.forEach(book => bookShelf.add(book));
+// const bookShelf: Shelf<Book> = new Shelf<Book>();
+// inventory.forEach(book => bookShelf.add(book));
 // console.log(bookShelf.getFirst().title);
 
-const magazines: Magazine[] = [
-    { title: 'Programming Language Monthly', publisher: 'Code Mags' },
-    { title: 'Literary Fiction Quarterly', publisher: 'College Press' },
-    { title: 'Five Points', publisher: 'GSU' }
-];
+// const magazines: Magazine[] = [
+//     { title: 'Programming Language Monthly', publisher: 'Code Mags' },
+//     { title: 'Literary Fiction Quarterly', publisher: 'College Press' },
+//     { title: 'Five Points', publisher: 'GSU' }
+// ];
 
-const magazineShelf = new Shelf<Magazine>();
-magazines.forEach(magazine => magazineShelf.add(magazine));
+// const magazineShelf = new Shelf<Magazine>();
+
+// magazines.forEach(magazine => magazineShelf.add(magazine));
 // console.log(magazineShelf.getFirst().title);
 
 // const numberShelf = new Shelf<number>();
 // [1, 2, 3, 4].forEach(num => numberShelf.add(num));
 // console.log(numberShelf.getFirst());
 
-magazineShelf.printTitles();
+// magazineShelf.printTitles();
 
-const codeCompleteBook = bookShelf.find('Code Complete');
-console.log(`${codeCompleteBook.title} (${codeCompleteBook.author})`);
+// const codeCompleteBook = bookShelf.find('Code Complete');
+// console.log(`${codeCompleteBook.title} (${codeCompleteBook.author})`);
+
+console.log(_.padStart('Hello Typescript!', 20, '>'));

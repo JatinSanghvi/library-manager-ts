@@ -1,0 +1,27 @@
+{
+    "name": "library-manager-ts",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+        "lib": "lib"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jatin085/library-manager-ts.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/jatin085/library-manager-ts/issues"
+    },
+    "homepage": "https://github.com/jatin085/library-manager-ts#readme",
+    "dependencies": {
+        "@types/lodash": "^4.14.112",
+        "lodash": "^4.17.10"
+    }
+}
